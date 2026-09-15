@@ -1083,12 +1083,12 @@
 <p>Get sample data</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><code><span class="n">gdf</span> <span class="o">=</span> <span class="n">gpd</span><span class="o">.</span><span class="n">read_file</span><span class="p">(</span><span class="n">get_path</span><span class="p">(</span><span class="s2">&quot;geoda.south&quot;</span><span class="p">))</span><span class="o">.</span><span class="n">to_crs</span><span class="p">(</span><span class="mi">5070</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><code><span class="n">gdf</span> <span class="o">=</span> <span class="n">gpd</span><span class="o">.</span><span class="n">read_file</span><span class="p">(</span><span class="n">get_path</span><span class="p">(</span><span class="s2">"geoda.south"</span><span class="p">))</span><span class="o">.</span><span class="n">to_crs</span><span class="p">(</span><span class="mi">5070</span><span class="p">)</span>
 
-<span class="n">gdf</span><span class="p">[</span><span class="s2">&quot;point&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">gdf</span><span class="o">.</span><span class="n">representative_point</span><span class="p">()</span>
-<span class="n">gdf</span> <span class="o">=</span> <span class="n">gdf</span><span class="o">.</span><span class="n">set_geometry</span><span class="p">(</span><span class="s2">&quot;point&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s2">&quot;FIPS&quot;</span><span class="p">)</span>
+<span class="n">gdf</span><span class="p">[</span><span class="s2">"point"</span><span class="p">]</span> <span class="o">=</span> <span class="n">gdf</span><span class="o">.</span><span class="n">representative_point</span><span class="p">()</span>
+<span class="n">gdf</span> <span class="o">=</span> <span class="n">gdf</span><span class="o">.</span><span class="n">set_geometry</span><span class="p">(</span><span class="s2">"point"</span><span class="p">)</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s2">"FIPS"</span><span class="p">)</span>
 
-<span class="n">y</span> <span class="o">=</span> <span class="n">gdf</span><span class="p">[</span><span class="s2">&quot;FH90&quot;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">gdf</span><span class="p">[</span><span class="s2">&quot;FH90&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">median</span><span class="p">()</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">gdf</span><span class="p">[</span><span class="s2">"FH90"</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">gdf</span><span class="p">[</span><span class="s2">"FH90"</span><span class="p">]</span><span class="o">.</span><span class="n">median</span><span class="p">()</span>
 <span class="n">X</span> <span class="o">=</span> <span class="n">gdf</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:,</span> <span class="mi">9</span><span class="p">:</span><span class="mi">15</span><span class="p">]</span>
 </code></pre></div>
 </div>
@@ -1697,6 +1697,14 @@ a.param-doc-link::before {
     width: 14px;
     height: 14px;
     cursor: pointer;
+    border: none;
+    padding: 0;
+    background-color: transparent;
+}
+
+.copy-paste-icon:focus-visible {
+    outline: 1px solid currentColor;
+    outline-offset: 1px;
 }
 
 .features {
@@ -1755,7 +1763,6 @@ a.param-doc-link::before {
 }
 
 .features .features-container {
-  max-width: 15em;
   max-height: 10em;
   overflow: auto;
   scrollbar-width: thin;
@@ -1827,170 +1834,187 @@ a.param-doc-link::before {
                   <tbody>
                     
         <tr class="user-set">
-            <td><i class="copy-paste-icon"
+            <td><button type="button" class="copy-paste-icon"
+                 aria-label="Copy bandwidth to clipboard"
                  onclick="copyToClipboard('bandwidth',
                           this.parentElement.nextElementSibling)"
-            ></i></td>
+            ></button></td>
             <td class="param">bandwidth</td>
             <td class="value">150</td>
         </tr>
     
 
         <tr class="user-set">
-            <td><i class="copy-paste-icon"
+            <td><button type="button" class="copy-paste-icon"
+                 aria-label="Copy keep_models to clipboard"
                  onclick="copyToClipboard('keep_models',
                           this.parentElement.nextElementSibling)"
-            ></i></td>
+            ></button></td>
             <td class="param">keep_models</td>
             <td class="value">True</td>
         </tr>
     
 
         <tr class="default">
-            <td><i class="copy-paste-icon"
+            <td><button type="button" class="copy-paste-icon"
+                 aria-label="Copy fixed to clipboard"
                  onclick="copyToClipboard('fixed',
                           this.parentElement.nextElementSibling)"
-            ></i></td>
+            ></button></td>
             <td class="param">fixed</td>
             <td class="value">False</td>
         </tr>
     
 
         <tr class="default">
-            <td><i class="copy-paste-icon"
+            <td><button type="button" class="copy-paste-icon"
+                 aria-label="Copy kernel to clipboard"
                  onclick="copyToClipboard('kernel',
                           this.parentElement.nextElementSibling)"
-            ></i></td>
+            ></button></td>
             <td class="param">kernel</td>
             <td class="value">&#x27;bisquare&#x27;</td>
         </tr>
     
 
         <tr class="default">
-            <td><i class="copy-paste-icon"
+            <td><button type="button" class="copy-paste-icon"
+                 aria-label="Copy include_focal to clipboard"
                  onclick="copyToClipboard('include_focal',
                           this.parentElement.nextElementSibling)"
-            ></i></td>
+            ></button></td>
             <td class="param">include_focal</td>
             <td class="value">True</td>
         </tr>
     
 
         <tr class="default">
-            <td><i class="copy-paste-icon"
+            <td><button type="button" class="copy-paste-icon"
+                 aria-label="Copy graph to clipboard"
                  onclick="copyToClipboard('graph',
                           this.parentElement.nextElementSibling)"
-            ></i></td>
+            ></button></td>
             <td class="param">graph</td>
             <td class="value">None</td>
         </tr>
     
 
         <tr class="default">
-            <td><i class="copy-paste-icon"
+            <td><button type="button" class="copy-paste-icon"
+                 aria-label="Copy n_jobs to clipboard"
                  onclick="copyToClipboard('n_jobs',
                           this.parentElement.nextElementSibling)"
-            ></i></td>
+            ></button></td>
             <td class="param">n_jobs</td>
             <td class="value">-1</td>
         </tr>
     
 
         <tr class="default">
-            <td><i class="copy-paste-icon"
+            <td><button type="button" class="copy-paste-icon"
+                 aria-label="Copy fit_global_model to clipboard"
                  onclick="copyToClipboard('fit_global_model',
                           this.parentElement.nextElementSibling)"
-            ></i></td>
+            ></button></td>
             <td class="param">fit_global_model</td>
             <td class="value">True</td>
         </tr>
     
 
         <tr class="default">
-            <td><i class="copy-paste-icon"
+            <td><button type="button" class="copy-paste-icon"
+                 aria-label="Copy strict to clipboard"
                  onclick="copyToClipboard('strict',
                           this.parentElement.nextElementSibling)"
-            ></i></td>
+            ></button></td>
             <td class="param">strict</td>
             <td class="value">False</td>
         </tr>
     
 
         <tr class="default">
-            <td><i class="copy-paste-icon"
+            <td><button type="button" class="copy-paste-icon"
+                 aria-label="Copy temp_folder to clipboard"
                  onclick="copyToClipboard('temp_folder',
                           this.parentElement.nextElementSibling)"
-            ></i></td>
+            ></button></td>
             <td class="param">temp_folder</td>
             <td class="value">None</td>
         </tr>
     
 
         <tr class="default">
-            <td><i class="copy-paste-icon"
+            <td><button type="button" class="copy-paste-icon"
+                 aria-label="Copy batch_size to clipboard"
                  onclick="copyToClipboard('batch_size',
                           this.parentElement.nextElementSibling)"
-            ></i></td>
+            ></button></td>
             <td class="param">batch_size</td>
             <td class="value">None</td>
         </tr>
     
 
         <tr class="default">
-            <td><i class="copy-paste-icon"
+            <td><button type="button" class="copy-paste-icon"
+                 aria-label="Copy min_proportion to clipboard"
                  onclick="copyToClipboard('min_proportion',
                           this.parentElement.nextElementSibling)"
-            ></i></td>
+            ></button></td>
             <td class="param">min_proportion</td>
             <td class="value">0.2</td>
         </tr>
     
 
         <tr class="default">
-            <td><i class="copy-paste-icon"
+            <td><button type="button" class="copy-paste-icon"
+                 aria-label="Copy undersample to clipboard"
                  onclick="copyToClipboard('undersample',
                           this.parentElement.nextElementSibling)"
-            ></i></td>
+            ></button></td>
             <td class="param">undersample</td>
             <td class="value">False</td>
         </tr>
     
 
         <tr class="default">
-            <td><i class="copy-paste-icon"
+            <td><button type="button" class="copy-paste-icon"
+                 aria-label="Copy leave_out to clipboard"
                  onclick="copyToClipboard('leave_out',
                           this.parentElement.nextElementSibling)"
-            ></i></td>
+            ></button></td>
             <td class="param">leave_out</td>
             <td class="value">None</td>
         </tr>
     
 
         <tr class="default">
-            <td><i class="copy-paste-icon"
+            <td><button type="button" class="copy-paste-icon"
+                 aria-label="Copy random_state to clipboard"
                  onclick="copyToClipboard('random_state',
                           this.parentElement.nextElementSibling)"
-            ></i></td>
+            ></button></td>
             <td class="param">random_state</td>
             <td class="value">None</td>
         </tr>
     
 
         <tr class="default">
-            <td><i class="copy-paste-icon"
+            <td><button type="button" class="copy-paste-icon"
+                 aria-label="Copy coplanar to clipboard"
                  onclick="copyToClipboard('coplanar',
                           this.parentElement.nextElementSibling)"
-            ></i></td>
+            ></button></td>
             <td class="param">coplanar</td>
             <td class="value">&#x27;raise&#x27;</td>
         </tr>
     
 
         <tr class="default">
-            <td><i class="copy-paste-icon"
+            <td><button type="button" class="copy-paste-icon"
+                 aria-label="Copy verbose to clipboard"
                  onclick="copyToClipboard('verbose',
                           this.parentElement.nextElementSibling)"
-            ></i></td>
+            ></button></td>
             <td class="param">verbose</td>
             <td class="value">False</td>
         </tr>
@@ -2014,7 +2038,7 @@ a.param-doc-link::before {
        <tr class="default">
            <td class="param"><a class="param-doc-link" style="text-decoration:none;">aic_</a></td>
            <td class="fitted-att-type">float64</td>
-           <td>1005</td>
+           <td>996.4</td>
 
 
        </tr>
@@ -2023,7 +2047,7 @@ a.param-doc-link::before {
        <tr class="default">
            <td class="param"><a class="param-doc-link" style="text-decoration:none;">aicc_</a></td>
            <td class="fitted-att-type">float64</td>
-           <td>1034</td>
+           <td>1025</td>
 
 
        </tr>
@@ -2032,7 +2056,7 @@ a.param-doc-link::before {
        <tr class="default">
            <td class="param"><a class="param-doc-link" style="text-decoration:none;">bic_</a></td>
            <td class="fitted-att-type">float64</td>
-           <td>1595</td>
+           <td>1586</td>
 
 
        </tr>
@@ -2059,7 +2083,7 @@ a.param-doc-link::before {
        <tr class="default">
            <td class="param"><a class="param-doc-link" style="text-decoration:none;">hat_values_</a></td>
            <td class="fitted-att-type">Series[float64](1270,)</td>
-           <td>51680    0.06...dtype: float64</td>
+           <td>51057    0.09...dtype: float64</td>
 
 
        </tr>
@@ -2068,8 +2092,8 @@ a.param-doc-link::before {
        <tr class="default">
            <td class="param"><a class="param-doc-link" style="text-decoration:none;">local_class_support_</a></td>
            <td class="fitted-att-type">Series[int64](1270,)</td>
-           <td>51680    2
-48..., dtype: int64</td>
+           <td>51057    2
+37..., dtype: int64</td>
 
 
        </tr>
@@ -2087,7 +2111,7 @@ a.param-doc-link::before {
        <tr class="default">
            <td class="param"><a class="param-doc-link" style="text-decoration:none;">local_intercept_</a></td>
            <td class="fitted-att-type">Series[float64](1270,)</td>
-           <td>51680   -2.21...dtype: float64</td>
+           <td>51057   -3.36...dtype: float64</td>
 
 
        </tr>
@@ -2096,7 +2120,7 @@ a.param-doc-link::before {
        <tr class="default">
            <td class="param"><a class="param-doc-link" style="text-decoration:none;">log_likelihood_</a></td>
            <td class="fitted-att-type">float64</td>
-           <td>-384.3</td>
+           <td>-380.1</td>
 
 
        </tr>
@@ -2106,7 +2130,7 @@ a.param-doc-link::before {
            <td class="param"><a class="param-doc-link" style="text-decoration:none;">pred_</a></td>
            <td class="fitted-att-type">Series[boolean](1270,)</td>
            <td>FIPS
-51680   ...dtype: boolean</td>
+51057   ...dtype: boolean</td>
 
 
        </tr>
@@ -2114,8 +2138,8 @@ a.param-doc-link::before {
 
        <tr class="default">
            <td class="param"><a class="param-doc-link" style="text-decoration:none;">pred_pooled_</a></td>
-           <td class="fitted-att-type">ndarray[bool](164100,)</td>
-           <td>[ True,False, True,..., True,False,False]</td>
+           <td class="fitted-att-type">ndarray[bool](163200,)</td>
+           <td>[False, True,False,...,False,False,False]</td>
 
 
        </tr>
@@ -2124,7 +2148,7 @@ a.param-doc-link::before {
        <tr class="default">
            <td class="param"><a class="param-doc-link" style="text-decoration:none;">prediction_rate_</a></td>
            <td class="fitted-att-type">float64</td>
-           <td>0.8614</td>
+           <td>0.8567</td>
 
 
        </tr>
@@ -2133,7 +2157,7 @@ a.param-doc-link::before {
        <tr class="default">
            <td class="param"><a class="param-doc-link" style="text-decoration:none;">proba_</a></td>
            <td class="fitted-att-type">DataFrame</td>
-           <td>             ...s x 2 columns]</td>
+           <td>          Fal...s x 2 columns]</td>
 
 
        </tr>
@@ -2141,8 +2165,8 @@ a.param-doc-link::before {
 
        <tr class="default">
            <td class="param"><a class="param-doc-link" style="text-decoration:none;">y_pooled_</a></td>
-           <td class="fitted-att-type">ndarray[bool](164100,)</td>
-           <td>[ True,False, True,..., True,False,False]</td>
+           <td class="fitted-att-type">ndarray[bool](163200,)</td>
+           <td>[False, True,False,..., True,False, True]</td>
 
 
        </tr>
@@ -2362,29 +2386,29 @@ forceTheme('sk-container-id-1');</script></body></div></div>
   </thead>
   <tbody>
     <tr>
-      <th>13317</th>
-      <td>0.244170</td>
-      <td>0.755830</td>
+      <th>37025</th>
+      <td>0.323628</td>
+      <td>0.676372</td>
     </tr>
     <tr>
-      <th>28101</th>
-      <td>0.157845</td>
-      <td>0.842155</td>
+      <th>51560</th>
+      <td>0.802387</td>
+      <td>0.197613</td>
     </tr>
     <tr>
-      <th>51027</th>
-      <td>0.380571</td>
-      <td>0.619429</td>
+      <th>21075</th>
+      <td>0.293096</td>
+      <td>0.706904</td>
     </tr>
     <tr>
-      <th>28113</th>
-      <td>NaN</td>
-      <td>NaN</td>
+      <th>05077</th>
+      <td>0.232223</td>
+      <td>0.767777</td>
     </tr>
     <tr>
-      <th>13087</th>
-      <td>0.016315</td>
-      <td>0.983685</td>
+      <th>21155</th>
+      <td>0.711758</td>
+      <td>0.288242</td>
     </tr>
     <tr>
       <th>...</th>
@@ -2392,29 +2416,29 @@ forceTheme('sk-container-id-1');</script></body></div></div>
       <td>...</td>
     </tr>
     <tr>
-      <th>40053</th>
+      <th>48455</th>
+      <td>0.415453</td>
+      <td>0.584547</td>
+    </tr>
+    <tr>
+      <th>13277</th>
       <td>NaN</td>
       <td>NaN</td>
     </tr>
     <tr>
-      <th>47119</th>
-      <td>0.777486</td>
-      <td>0.222514</td>
+      <th>47067</th>
+      <td>0.794734</td>
+      <td>0.205266</td>
     </tr>
     <tr>
-      <th>48359</th>
-      <td>NaN</td>
-      <td>NaN</td>
+      <th>21019</th>
+      <td>0.811928</td>
+      <td>0.188072</td>
     </tr>
     <tr>
-      <th>51520</th>
-      <td>0.860528</td>
-      <td>0.139472</td>
-    </tr>
-    <tr>
-      <th>54047</th>
-      <td>0.069111</td>
-      <td>0.930889</td>
+      <th>28159</th>
+      <td>0.085339</td>
+      <td>0.914661</td>
     </tr>
   </tbody>
 </table>
@@ -2424,27 +2448,27 @@ forceTheme('sk-container-id-1');</script></body></div></div>
 <p>You can then check the accuracy of this prediction. Note that similarly to fitting, there might be locations that return NA, if the local model was not fitted due to invariance.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><code><span class="n">gpd</span><span class="o">.</span><span class="n">GeoDataFrame</span><span class="p">(</span><span class="n">proba</span><span class="p">,</span> <span class="n">geometry</span><span class="o">=</span><span class="n">gdf</span><span class="p">[</span><span class="s2">&quot;geometry&quot;</span><span class="p">])</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span>
-    <span class="kc">True</span><span class="p">,</span> <span class="n">missing_kwds</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s2">&quot;red&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><code><span class="n">gpd</span><span class="o">.</span><span class="n">GeoDataFrame</span><span class="p">(</span><span class="n">proba</span><span class="p">,</span> <span class="n">geometry</span><span class="o">=</span><span class="n">gdf</span><span class="p">[</span><span class="s2">"geometry"</span><span class="p">])</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span>
+    <span class="kc">True</span><span class="p">,</span> <span class="n">missing_kwds</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s2">"red"</span><span class="p">)</span>
 <span class="p">)</span><span class="o">.</span><span class="n">set_axis_off</span><span class="p">()</span>
 </code></pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/a5e9d386c7e56ae0f45bacc275ca54f5737d54834d3f7d5f4bb1d2417b5bce46.png" src="_images/a5e9d386c7e56ae0f45bacc275ca54f5737d54834d3f7d5f4bb1d2417b5bce46.png" />
+<img alt="_images/180e091bd0d432915f2bbf98e789cee15f6dc79a3e094941fb166c143fa862a1.png" src="_images/180e091bd0d432915f2bbf98e789cee15f6dc79a3e094941fb166c143fa862a1.png" />
 </div>
 </div>
 <p>The missing values have been linked to models that were not fitted. You can check all of those visually by plotting the focal prediction.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><code><span class="n">gpd</span><span class="o">.</span><span class="n">GeoDataFrame</span><span class="p">({</span><span class="s2">&quot;pred&quot;</span><span class="p">:</span> <span class="n">gwrf</span><span class="o">.</span><span class="n">pred_</span><span class="p">},</span> <span class="n">geometry</span><span class="o">=</span><span class="n">gdf</span><span class="p">[</span><span class="s2">&quot;geometry&quot;</span><span class="p">])</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span>
-    <span class="s2">&quot;pred&quot;</span><span class="p">,</span> <span class="n">missing_kwds</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s2">&quot;red&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><code><span class="n">gpd</span><span class="o">.</span><span class="n">GeoDataFrame</span><span class="p">({</span><span class="s2">"pred"</span><span class="p">:</span> <span class="n">gwrf</span><span class="o">.</span><span class="n">pred_</span><span class="p">},</span> <span class="n">geometry</span><span class="o">=</span><span class="n">gdf</span><span class="p">[</span><span class="s2">"geometry"</span><span class="p">])</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span>
+    <span class="s2">"pred"</span><span class="p">,</span> <span class="n">missing_kwds</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s2">"red"</span><span class="p">)</span>
 <span class="p">)</span><span class="o">.</span><span class="n">set_axis_off</span><span class="p">()</span>
 </code></pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/e4b840dbf8f23ea30d451a0b755b21626ffbd20c4a1462c69dfabc0031ab5b7f.png" src="_images/e4b840dbf8f23ea30d451a0b755b21626ffbd20c4a1462c69dfabc0031ab5b7f.png" />
+<img alt="_images/9010ba9912c20c946248f9166590cdb57a31ffa0119b7bcfccdbfadd3e781edf.png" src="_images/9010ba9912c20c946248f9166590cdb57a31ffa0119b7bcfccdbfadd3e781edf.png" />
 </div>
 </div>
 <p>Filter it out and measure the performance on the left-out sample.</p>
@@ -2459,7 +2483,7 @@ forceTheme('sk-container-id-1');</script></body></div></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><code>0.7459016393442623
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><code>0.7692307692307693
 </code></pre></div>
 </div>
 </div>
@@ -2511,29 +2535,29 @@ forceTheme('sk-container-id-1');</script></body></div></div>
   </thead>
   <tbody>
     <tr>
-      <th>13317</th>
-      <td>0.327153</td>
-      <td>0.672847</td>
+      <th>37025</th>
+      <td>0.343928</td>
+      <td>0.656072</td>
     </tr>
     <tr>
-      <th>28101</th>
-      <td>0.207429</td>
-      <td>0.792571</td>
+      <th>51560</th>
+      <td>0.826818</td>
+      <td>0.173182</td>
     </tr>
     <tr>
-      <th>51027</th>
-      <td>0.399126</td>
-      <td>0.600874</td>
+      <th>21075</th>
+      <td>0.355863</td>
+      <td>0.644137</td>
     </tr>
     <tr>
-      <th>28113</th>
-      <td>0.013788</td>
-      <td>0.986212</td>
+      <th>05077</th>
+      <td>0.260370</td>
+      <td>0.739630</td>
     </tr>
     <tr>
-      <th>13087</th>
-      <td>0.015935</td>
-      <td>0.984065</td>
+      <th>21155</th>
+      <td>0.701557</td>
+      <td>0.298443</td>
     </tr>
     <tr>
       <th>...</th>
@@ -2541,29 +2565,29 @@ forceTheme('sk-container-id-1');</script></body></div></div>
       <td>...</td>
     </tr>
     <tr>
-      <th>40053</th>
-      <td>0.978316</td>
-      <td>0.021684</td>
+      <th>48455</th>
+      <td>0.383486</td>
+      <td>0.616514</td>
     </tr>
     <tr>
-      <th>47119</th>
-      <td>0.380752</td>
-      <td>0.619248</td>
+      <th>13277</th>
+      <td>0.211837</td>
+      <td>0.788163</td>
     </tr>
     <tr>
-      <th>48359</th>
-      <td>0.965330</td>
-      <td>0.034670</td>
+      <th>47067</th>
+      <td>0.854284</td>
+      <td>0.145716</td>
     </tr>
     <tr>
-      <th>51520</th>
-      <td>0.844690</td>
-      <td>0.155310</td>
+      <th>21019</th>
+      <td>0.775611</td>
+      <td>0.224389</td>
     </tr>
     <tr>
-      <th>54047</th>
-      <td>0.058297</td>
-      <td>0.941703</td>
+      <th>28159</th>
+      <td>0.145334</td>
+      <td>0.854666</td>
     </tr>
   </tbody>
 </table>
@@ -2573,14 +2597,14 @@ forceTheme('sk-container-id-1');</script></body></div></div>
 <p>Given it relies on an ensemble, not a single nearest model, it returns NaN only when all the local models within the bandwidth were not fitted.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><code><span class="n">gpd</span><span class="o">.</span><span class="n">GeoDataFrame</span><span class="p">(</span><span class="n">proba_ensemble</span><span class="p">,</span> <span class="n">geometry</span><span class="o">=</span><span class="n">gdf</span><span class="p">[</span><span class="s2">&quot;geometry&quot;</span><span class="p">])</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span>
-    <span class="kc">True</span><span class="p">,</span> <span class="n">missing_kwds</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s2">&quot;red&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><code><span class="n">gpd</span><span class="o">.</span><span class="n">GeoDataFrame</span><span class="p">(</span><span class="n">proba_ensemble</span><span class="p">,</span> <span class="n">geometry</span><span class="o">=</span><span class="n">gdf</span><span class="p">[</span><span class="s2">"geometry"</span><span class="p">])</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span>
+    <span class="kc">True</span><span class="p">,</span> <span class="n">missing_kwds</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s2">"red"</span><span class="p">)</span>
 <span class="p">)</span><span class="o">.</span><span class="n">set_axis_off</span><span class="p">()</span>
 </code></pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/237745f60118d29a516d5461508dc8c3f98f0ae52363da76dbcbb4d95e2b38c4.png" src="_images/237745f60118d29a516d5461508dc8c3f98f0ae52363da76dbcbb4d95e2b38c4.png" />
+<img alt="_images/3a28c9c6d6d7aea54af8d49c8644695537ba6bcb1a90e8c783815b6be6a15eda.png" src="_images/3a28c9c6d6d7aea54af8d49c8644695537ba6bcb1a90e8c783815b6be6a15eda.png" />
 </div>
 </div>
 <p>This is one of the benefits of the ensemble prediction. Another is theoretical spatial robustness. Nevertheless, the actual metrics are typically very similar between the models.</p>
@@ -2594,7 +2618,7 @@ forceTheme('sk-container-id-1');</script></body></div></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><code>0.7816901408450704
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><code>0.7746478873239436
 </code></pre></div>
 </div>
 </div>
@@ -2638,29 +2662,29 @@ forceTheme('sk-container-id-1');</script></body></div></div>
   </thead>
   <tbody>
     <tr>
-      <th>13317</th>
-      <td>0.284359</td>
-      <td>0.715641</td>
+      <th>37025</th>
+      <td>0.351991</td>
+      <td>0.648009</td>
     </tr>
     <tr>
-      <th>28101</th>
-      <td>0.208721</td>
-      <td>0.791279</td>
+      <th>51560</th>
+      <td>0.821596</td>
+      <td>0.178404</td>
     </tr>
     <tr>
-      <th>51027</th>
-      <td>0.396817</td>
-      <td>0.603183</td>
+      <th>21075</th>
+      <td>0.289440</td>
+      <td>0.710560</td>
     </tr>
     <tr>
-      <th>28113</th>
-      <td>0.096861</td>
-      <td>0.903139</td>
+      <th>05077</th>
+      <td>0.275735</td>
+      <td>0.724265</td>
     </tr>
     <tr>
-      <th>13087</th>
-      <td>0.029162</td>
-      <td>0.970838</td>
+      <th>21155</th>
+      <td>0.709070</td>
+      <td>0.290930</td>
     </tr>
     <tr>
       <th>...</th>
@@ -2668,29 +2692,29 @@ forceTheme('sk-container-id-1');</script></body></div></div>
       <td>...</td>
     </tr>
     <tr>
-      <th>40053</th>
-      <td>0.946483</td>
-      <td>0.053517</td>
+      <th>48455</th>
+      <td>0.430516</td>
+      <td>0.569484</td>
     </tr>
     <tr>
-      <th>47119</th>
-      <td>0.646521</td>
-      <td>0.353479</td>
+      <th>13277</th>
+      <td>0.596493</td>
+      <td>0.403507</td>
     </tr>
     <tr>
-      <th>48359</th>
-      <td>0.946483</td>
-      <td>0.053517</td>
+      <th>47067</th>
+      <td>0.809508</td>
+      <td>0.190492</td>
     </tr>
     <tr>
-      <th>51520</th>
-      <td>0.850222</td>
-      <td>0.149778</td>
+      <th>21019</th>
+      <td>0.820795</td>
+      <td>0.179205</td>
     </tr>
     <tr>
-      <th>54047</th>
-      <td>0.058492</td>
-      <td>0.941508</td>
+      <th>28159</th>
+      <td>0.160402</td>
+      <td>0.839598</td>
     </tr>
   </tbody>
 </table>
@@ -2707,7 +2731,7 @@ forceTheme('sk-container-id-1');</script></body></div></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><code>0.7605633802816901
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><code>0.7323943661971831
 </code></pre></div>
 </div>
 </div>
@@ -2725,7 +2749,7 @@ forceTheme('sk-container-id-1');</script></body></div></div>
 <p>Prepare the data with a continuous target variable.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><code><span class="n">y_reg</span> <span class="o">=</span> <span class="n">gdf</span><span class="p">[</span><span class="s2">&quot;FH90&quot;</span><span class="p">]</span>  <span class="c1"># Use the continuous variable directly</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><code><span class="n">y_reg</span> <span class="o">=</span> <span class="n">gdf</span><span class="p">[</span><span class="s2">"FH90"</span><span class="p">]</span>  <span class="c1"># Use the continuous variable directly</span>
 
 <span class="n">X_train_reg</span><span class="p">,</span> <span class="n">X_test_reg</span><span class="p">,</span> <span class="n">y_train_reg</span><span class="p">,</span> <span class="n">y_test_reg</span><span class="p">,</span> <span class="n">geom_train_reg</span><span class="p">,</span> <span class="n">geom_test_reg</span> <span class="o">=</span> <span class="p">(</span>
     <span class="n">train_test_split</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y_reg</span><span class="p">,</span> <span class="n">gdf</span><span class="o">.</span><span class="n">geometry</span><span class="p">,</span> <span class="n">test_size</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>
@@ -3327,6 +3351,14 @@ a.param-doc-link::before {
     width: 14px;
     height: 14px;
     cursor: pointer;
+    border: none;
+    padding: 0;
+    background-color: transparent;
+}
+
+.copy-paste-icon:focus-visible {
+    outline: 1px solid currentColor;
+    outline-offset: 1px;
 }
 
 .features {
@@ -3385,7 +3417,6 @@ a.param-doc-link::before {
 }
 
 .features .features-container {
-  max-width: 15em;
   max-height: 10em;
   overflow: auto;
   scrollbar-width: thin;
@@ -3457,130 +3488,143 @@ a.param-doc-link::before {
                   <tbody>
                     
         <tr class="user-set">
-            <td><i class="copy-paste-icon"
+            <td><button type="button" class="copy-paste-icon"
+                 aria-label="Copy bandwidth to clipboard"
                  onclick="copyToClipboard('bandwidth',
                           this.parentElement.nextElementSibling)"
-            ></i></td>
+            ></button></td>
             <td class="param">bandwidth</td>
             <td class="value">150</td>
         </tr>
     
 
         <tr class="user-set">
-            <td><i class="copy-paste-icon"
+            <td><button type="button" class="copy-paste-icon"
+                 aria-label="Copy keep_models to clipboard"
                  onclick="copyToClipboard('keep_models',
                           this.parentElement.nextElementSibling)"
-            ></i></td>
+            ></button></td>
             <td class="param">keep_models</td>
             <td class="value">True</td>
         </tr>
     
 
         <tr class="default">
-            <td><i class="copy-paste-icon"
+            <td><button type="button" class="copy-paste-icon"
+                 aria-label="Copy fixed to clipboard"
                  onclick="copyToClipboard('fixed',
                           this.parentElement.nextElementSibling)"
-            ></i></td>
+            ></button></td>
             <td class="param">fixed</td>
             <td class="value">False</td>
         </tr>
     
 
         <tr class="default">
-            <td><i class="copy-paste-icon"
+            <td><button type="button" class="copy-paste-icon"
+                 aria-label="Copy kernel to clipboard"
                  onclick="copyToClipboard('kernel',
                           this.parentElement.nextElementSibling)"
-            ></i></td>
+            ></button></td>
             <td class="param">kernel</td>
             <td class="value">&#x27;bisquare&#x27;</td>
         </tr>
     
 
         <tr class="default">
-            <td><i class="copy-paste-icon"
+            <td><button type="button" class="copy-paste-icon"
+                 aria-label="Copy include_focal to clipboard"
                  onclick="copyToClipboard('include_focal',
                           this.parentElement.nextElementSibling)"
-            ></i></td>
+            ></button></td>
             <td class="param">include_focal</td>
             <td class="value">True</td>
         </tr>
     
 
         <tr class="default">
-            <td><i class="copy-paste-icon"
+            <td><button type="button" class="copy-paste-icon"
+                 aria-label="Copy graph to clipboard"
                  onclick="copyToClipboard('graph',
                           this.parentElement.nextElementSibling)"
-            ></i></td>
+            ></button></td>
             <td class="param">graph</td>
             <td class="value">None</td>
         </tr>
     
 
         <tr class="default">
-            <td><i class="copy-paste-icon"
+            <td><button type="button" class="copy-paste-icon"
+                 aria-label="Copy n_jobs to clipboard"
                  onclick="copyToClipboard('n_jobs',
                           this.parentElement.nextElementSibling)"
-            ></i></td>
+            ></button></td>
             <td class="param">n_jobs</td>
             <td class="value">-1</td>
         </tr>
     
 
         <tr class="default">
-            <td><i class="copy-paste-icon"
+            <td><button type="button" class="copy-paste-icon"
+                 aria-label="Copy fit_global_model to clipboard"
                  onclick="copyToClipboard('fit_global_model',
                           this.parentElement.nextElementSibling)"
-            ></i></td>
+            ></button></td>
             <td class="param">fit_global_model</td>
             <td class="value">True</td>
         </tr>
     
 
         <tr class="default">
-            <td><i class="copy-paste-icon"
+            <td><button type="button" class="copy-paste-icon"
+                 aria-label="Copy strict to clipboard"
                  onclick="copyToClipboard('strict',
                           this.parentElement.nextElementSibling)"
-            ></i></td>
+            ></button></td>
             <td class="param">strict</td>
             <td class="value">False</td>
         </tr>
     
 
         <tr class="default">
-            <td><i class="copy-paste-icon"
+            <td><button type="button" class="copy-paste-icon"
+                 aria-label="Copy temp_folder to clipboard"
                  onclick="copyToClipboard('temp_folder',
                           this.parentElement.nextElementSibling)"
-            ></i></td>
+            ></button></td>
             <td class="param">temp_folder</td>
             <td class="value">None</td>
         </tr>
     
 
         <tr class="default">
-            <td><i class="copy-paste-icon"
+            <td><button type="button" class="copy-paste-icon"
+                 aria-label="Copy batch_size to clipboard"
                  onclick="copyToClipboard('batch_size',
                           this.parentElement.nextElementSibling)"
-            ></i></td>
+            ></button></td>
             <td class="param">batch_size</td>
             <td class="value">None</td>
         </tr>
     
 
         <tr class="default">
-            <td><i class="copy-paste-icon"
+            <td><button type="button" class="copy-paste-icon"
+                 aria-label="Copy coplanar to clipboard"
                  onclick="copyToClipboard('coplanar',
                           this.parentElement.nextElementSibling)"
-            ></i></td>
+            ></button></td>
             <td class="param">coplanar</td>
             <td class="value">&#x27;raise&#x27;</td>
         </tr>
     
 
         <tr class="default">
-            <td><i class="copy-paste-icon"
+            <td><button type="button" class="copy-paste-icon"
+                 aria-label="Copy verbose to clipboard"
                  onclick="copyToClipboard('verbose',
                           this.parentElement.nextElementSibling)"
-            ></i></td>
+            ></button></td>
             <td class="param">verbose</td>
             <td class="value">False</td>
         </tr>
@@ -3944,21 +3988,21 @@ Length: 142, dtype: float64
 <p>Visualize the predicted values spatially.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><code><span class="n">gpd</span><span class="o">.</span><span class="n">GeoDataFrame</span><span class="p">({</span><span class="s2">&quot;prediction&quot;</span><span class="p">:</span> <span class="n">pred_reg</span><span class="p">},</span> <span class="n">geometry</span><span class="o">=</span><span class="n">gdf</span><span class="p">[</span><span class="s2">&quot;geometry&quot;</span><span class="p">])</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span>
-    <span class="s2">&quot;prediction&quot;</span><span class="p">,</span> <span class="n">legend</span><span class="o">=</span><span class="kc">True</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><code><span class="n">gpd</span><span class="o">.</span><span class="n">GeoDataFrame</span><span class="p">({</span><span class="s2">"prediction"</span><span class="p">:</span> <span class="n">pred_reg</span><span class="p">},</span> <span class="n">geometry</span><span class="o">=</span><span class="n">gdf</span><span class="p">[</span><span class="s2">"geometry"</span><span class="p">])</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span>
+    <span class="s2">"prediction"</span><span class="p">,</span> <span class="n">legend</span><span class="o">=</span><span class="kc">True</span>
 <span class="p">)</span><span class="o">.</span><span class="n">set_axis_off</span><span class="p">()</span>
 </code></pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/2301932ccedf4f6f60441f4c7436011f5ac295b9adefde431418c7c822e2989c.png" src="_images/2301932ccedf4f6f60441f4c7436011f5ac295b9adefde431418c7c822e2989c.png" />
+<img alt="_images/511241fbaa22635ea81f87c393495d5635063541641396dd979eaf8783bf6935.png" src="_images/511241fbaa22635ea81f87c393495d5635063541641396dd979eaf8783bf6935.png" />
 </div>
 </div>
 <p>Evaluate the prediction performance using common regression metrics.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><code><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;R2 score: </span><span class="si">{</span><span class="n">metrics</span><span class="o">.</span><span class="n">r2_score</span><span class="p">(</span><span class="n">y_test_reg</span><span class="p">,</span><span class="w"> </span><span class="n">pred_reg</span><span class="p">)</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;RMSE: </span><span class="si">{</span><span class="n">metrics</span><span class="o">.</span><span class="n">root_mean_squared_error</span><span class="p">(</span><span class="n">y_test_reg</span><span class="p">,</span><span class="w"> </span><span class="n">pred_reg</span><span class="p">)</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><code><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"R2 score: </span><span class="si">{</span><span class="n">metrics</span><span class="o">.</span><span class="n">r2_score</span><span class="p">(</span><span class="n">y_test_reg</span><span class="p">,</span><span class="w"> </span><span class="n">pred_reg</span><span class="p">)</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"RMSE: </span><span class="si">{</span><span class="n">metrics</span><span class="o">.</span><span class="n">root_mean_squared_error</span><span class="p">(</span><span class="n">y_test_reg</span><span class="p">,</span><span class="w"> </span><span class="n">pred_reg</span><span class="p">)</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
 </code></pre></div>
 </div>
 </div>
@@ -3998,8 +4042,8 @@ Length: 142, dtype: float64
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><code><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;R2 score: </span><span class="si">{</span><span class="n">metrics</span><span class="o">.</span><span class="n">r2_score</span><span class="p">(</span><span class="n">y_test_reg</span><span class="p">,</span><span class="w"> </span><span class="n">pred_reg_ensemble</span><span class="p">)</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;RMSE: </span><span class="si">{</span><span class="n">metrics</span><span class="o">.</span><span class="n">root_mean_squared_error</span><span class="p">(</span><span class="n">y_test_reg</span><span class="p">,</span><span class="w"> </span><span class="n">pred_reg_ensemble</span><span class="p">)</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><code><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"R2 score: </span><span class="si">{</span><span class="n">metrics</span><span class="o">.</span><span class="n">r2_score</span><span class="p">(</span><span class="n">y_test_reg</span><span class="p">,</span><span class="w"> </span><span class="n">pred_reg_ensemble</span><span class="p">)</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"RMSE: </span><span class="si">{</span><span class="n">metrics</span><span class="o">.</span><span class="n">root_mean_squared_error</span><span class="p">(</span><span class="n">y_test_reg</span><span class="p">,</span><span class="w"> </span><span class="n">pred_reg_ensemble</span><span class="p">)</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
 </code></pre></div>
 </div>
 </div>
@@ -4041,8 +4085,8 @@ Length: 142, dtype: float64
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><code><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;R2 score: </span><span class="si">{</span><span class="n">metrics</span><span class="o">.</span><span class="n">r2_score</span><span class="p">(</span><span class="n">y_test_reg</span><span class="p">,</span><span class="w"> </span><span class="n">pred_reg_fused</span><span class="p">)</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;RMSE: </span><span class="si">{</span><span class="n">metrics</span><span class="o">.</span><span class="n">root_mean_squared_error</span><span class="p">(</span><span class="n">y_test_reg</span><span class="p">,</span><span class="w"> </span><span class="n">pred_reg_fused</span><span class="p">)</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><code><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"R2 score: </span><span class="si">{</span><span class="n">metrics</span><span class="o">.</span><span class="n">r2_score</span><span class="p">(</span><span class="n">y_test_reg</span><span class="p">,</span><span class="w"> </span><span class="n">pred_reg_fused</span><span class="p">)</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"RMSE: </span><span class="si">{</span><span class="n">metrics</span><span class="o">.</span><span class="n">root_mean_squared_error</span><span class="p">(</span><span class="n">y_test_reg</span><span class="p">,</span><span class="w"> </span><span class="n">pred_reg_fused</span><span class="p">)</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
 </code></pre></div>
 </div>
 </div>
