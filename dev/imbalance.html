@@ -2520,7 +2520,7 @@ forceTheme('sk-container-id-1');</script></body></div></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/05dce275be6e6fb4e147d2e625931ea045a3eadb8b81c2af7d8f78f4e1568c9a.png" src="_images/05dce275be6e6fb4e147d2e625931ea045a3eadb8b81c2af7d8f78f4e1568c9a.png" />
+<img alt="_images/100be0a03115090a52533d3f0ef4af071264d517f6b26f9510d0a841d566ae11.png" src="_images/100be0a03115090a52533d3f0ef4af071264d517f6b26f9510d0a841d566ae11.png" />
 </div>
 </div>
 <p>The local performance for such a model then looks like this.</p>
@@ -2533,7 +2533,7 @@ forceTheme('sk-container-id-1');</script></body></div></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/cd3dc62be574571bc70c18df39de3f951e208db27528eb3320348b454d7103ab.png" src="_images/cd3dc62be574571bc70c18df39de3f951e208db27528eb3320348b454d7103ab.png" />
+<img alt="_images/4af9eda1e998dc733c8ea1d8dafea8f99fc1ecc1e11339de8c3c36991a3fb3c6.png" src="_images/4af9eda1e998dc733c8ea1d8dafea8f99fc1ecc1e11339de8c3c36991a3fb3c6.png" />
 </div>
 </div>
 <h2 id="adapting-the-allowed-proportion">Adapting the allowed proportion<a class="headerlink" href="#adapting-the-allowed-proportion" title="Link to this heading">¶</a></h2>
@@ -2550,6 +2550,10 @@ forceTheme('sk-container-id-1');</script></body></div></div>
 </div>
 </div>
 <div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><code>/home/runner/micromamba/envs/py314-latest/lib/python3.14/site-packages/sklearn/ensemble/_forest.py:589: UserWarning: Some inputs do not have OOB scores. This probably means too few trees were used to compute any reliable OOB estimates.
+  warn(
+</code></pre></div>
+</div>
 <div class="output text_html"><style>.sk-global {
   /* Definition of color scheme common for light and dark mode */
   --sklearn-color-text: #000;
@@ -3742,7 +3746,7 @@ forceTheme('sk-container-id-2');</script></body></div></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/c2cdf1d188aca05b9cb8995948019f600b127b8f6b9104914920e2f44d36c90e.png" src="_images/c2cdf1d188aca05b9cb8995948019f600b127b8f6b9104914920e2f44d36c90e.png" />
+<img alt="_images/19d979c7f55630d8e027025eb7f98f2729eef070e6b8493a85360bdf9f122336.png" src="_images/19d979c7f55630d8e027025eb7f98f2729eef070e6b8493a85360bdf9f122336.png" />
 </div>
 </div>
 <h2 id="undersampling">Undersampling<a class="headerlink" href="#undersampling" title="Link to this heading">¶</a></h2>
@@ -4715,7 +4719,7 @@ a.param-doc-link::before {
        <tr class="default">
            <td class="param"><a class="param-doc-link" style="text-decoration:none;">oob_pred_pooled_</a></td>
            <td class="fitted-att-type">ndarray[int64](1196,)</td>
-           <td>[1,0,1,...,0,1,0]</td>
+           <td>[1,0,1,...,1,0,0]</td>
 
 
        </tr>
@@ -4728,8 +4732,8 @@ a.param-doc-link::before {
  [0.],
  [0.],
  ...,
- [0.],
  [1.],
+ [0.],
  [1.]]</td>
 
 
@@ -4977,7 +4981,7 @@ forceTheme('sk-container-id-3');</script></body></div></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/019e79406203e3b529ea95129d6380dca89b90a672b655310c9dcf95c5e30e53.png" src="_images/019e79406203e3b529ea95129d6380dca89b90a672b655310c9dcf95c5e30e53.png" />
+<img alt="_images/72dea7421135bcf29f3677b675c84d0cadd12befd8db310893a8975a1581b5fa.png" src="_images/72dea7421135bcf29f3677b675c84d0cadd12befd8db310893a8975a1581b5fa.png" />
 </div>
 </div>
 <p>Keep in mind that for models like this one, where we use only 25 observations in each local model, undersampling can have a severe efect on the model robustness in a negative way, as it may reduce the number of observations that are actually used by quite a lot. Use with caution and ideally in situations where you rely on a larger number of neighbors.</p>
