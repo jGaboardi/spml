@@ -1326,10 +1326,6 @@ Extracting 'guerry/guerry.prj' from '/home/runner/.cache/geodatasets/guerry.zip'
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><code>/home/runner/micromamba/envs/py314-latest/lib/python3.14/site-packages/sklearn/ensemble/_forest.py:589: UserWarning: Some inputs do not have OOB scores. This probably means too few trees were used to compute any reliable OOB estimates.
-  warn(
-</code></pre></div>
-</div>
 <div class="output text_html"><style>.sk-global {
   /* Definition of color scheme common for light and dark mode */
   --sklearn-color-text: #000;
@@ -2520,7 +2516,7 @@ forceTheme('sk-container-id-1');</script></body></div></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/100be0a03115090a52533d3f0ef4af071264d517f6b26f9510d0a841d566ae11.png" src="_images/100be0a03115090a52533d3f0ef4af071264d517f6b26f9510d0a841d566ae11.png" />
+<img alt="_images/5f757bbc063ba8d6b628bbec437e111b30e5330c7c98ed84cd72a6ea07ff1e0c.png" src="_images/5f757bbc063ba8d6b628bbec437e111b30e5330c7c98ed84cd72a6ea07ff1e0c.png" />
 </div>
 </div>
 <p>The local performance for such a model then looks like this.</p>
@@ -2533,7 +2529,7 @@ forceTheme('sk-container-id-1');</script></body></div></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/4af9eda1e998dc733c8ea1d8dafea8f99fc1ecc1e11339de8c3c36991a3fb3c6.png" src="_images/4af9eda1e998dc733c8ea1d8dafea8f99fc1ecc1e11339de8c3c36991a3fb3c6.png" />
+<img alt="_images/779eab6dbdbeee8dde4250b3306e78e6214398c21d173886fa779cd8cd00bff6.png" src="_images/779eab6dbdbeee8dde4250b3306e78e6214398c21d173886fa779cd8cd00bff6.png" />
 </div>
 </div>
 <h2 id="adapting-the-allowed-proportion">Adapting the allowed proportion<a class="headerlink" href="#adapting-the-allowed-proportion" title="Link to this heading">¶</a></h2>
@@ -3770,8 +3766,6 @@ forceTheme('sk-container-id-2');</script></body></div></div>
 <div class="cell_output docutils container">
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><code>/home/runner/micromamba/envs/py314-latest/lib/python3.14/site-packages/sklearn/ensemble/_forest.py:589: UserWarning: Some inputs do not have OOB scores. This probably means too few trees were used to compute any reliable OOB estimates.
   warn(
-/home/runner/micromamba/envs/py314-latest/lib/python3.14/site-packages/sklearn/ensemble/_forest.py:589: UserWarning: Some inputs do not have OOB scores. This probably means too few trees were used to compute any reliable OOB estimates.
-  warn(
 </code></pre></div>
 </div>
 <div class="output text_html"><style>.sk-global {
@@ -4719,7 +4713,7 @@ a.param-doc-link::before {
        <tr class="default">
            <td class="param"><a class="param-doc-link" style="text-decoration:none;">oob_pred_pooled_</a></td>
            <td class="fitted-att-type">ndarray[int64](1196,)</td>
-           <td>[1,0,1,...,1,0,0]</td>
+           <td>[1,0,1,...,0,1,0]</td>
 
 
        </tr>
@@ -4732,8 +4726,8 @@ a.param-doc-link::before {
  [0.],
  [0.],
  ...,
- [1.],
  [0.],
+ [1.],
  [1.]]</td>
 
 
@@ -4981,7 +4975,7 @@ forceTheme('sk-container-id-3');</script></body></div></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/72dea7421135bcf29f3677b675c84d0cadd12befd8db310893a8975a1581b5fa.png" src="_images/72dea7421135bcf29f3677b675c84d0cadd12befd8db310893a8975a1581b5fa.png" />
+<img alt="_images/eac7487d65f202d59bf3941aea24b2fc21675e3d5281ad013951d112d4455b49.png" src="_images/eac7487d65f202d59bf3941aea24b2fc21675e3d5281ad013951d112d4455b49.png" />
 </div>
 </div>
 <p>Keep in mind that for models like this one, where we use only 25 observations in each local model, undersampling can have a severe efect on the model robustness in a negative way, as it may reduce the number of observations that are actually used by quite a lot. Use with caution and ideally in situations where you rely on a larger number of neighbors.</p>
